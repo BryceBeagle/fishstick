@@ -1,0 +1,4 @@
+/hardware/*-bak
+/hardware/*.bak
+/hardware/fp-info-cache
+
