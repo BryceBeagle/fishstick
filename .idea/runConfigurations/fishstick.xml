@@ -1,0 +1,10 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="fishstick" type="com.jetbrains.cidr.embedded.openocd.conf.type" factoryName="com.jetbrains.cidr.embedded.openocd.conf.factory" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="fishstick" TARGET_NAME="Do Nothing" CONFIG_NAME="Do Nothing" version="1" RUN_PATH="$PROJECT_DIR$/software/target/thumbv7m-none-eabi/debug/bluepill">
+    <openocd version="1" gdb-port="3333" telnet-port="4444" board-config="$PROJECT_DIR$/software/.openocd/stlink-bluepill.cfg" reset-type="INIT" download-type="UPDATED_ONLY">
+      <debugger toolchainName="Default" />
+    </openocd>
+    <method v="2">
+      <option name="ToolBeforeRunTask" enabled="true" actionId="Tool_External Tools_cargo build" />
+    </method>
+  </configuration>
+</component>
