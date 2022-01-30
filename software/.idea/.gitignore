@@ -1,6 +1,3 @@
 # Default ignored files
 /shelf/
 /workspace.xml
-
-# embedded development configs require absolute paths for now so we wont incude them
-/runConfigurations
