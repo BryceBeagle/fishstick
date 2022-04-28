@@ -25,14 +25,12 @@ fn main() -> ! {
     // `clocks`
     let clocks = rcc.cfgr.freeze(&mut flash.acr);
 
-    // Acquire the GPIOB peripheral
-    let mut gpiob = dp.GPIOB.split();
+    // Acquire the GPIOC peripheral
+    let mut gpioc = dp.GPIOC.split();
 
     // Configure pins as push-pull outputs. The `crh` register is passed to the function in order to
     // configure the port. For pins 0-7, crl should be passed instead.
-    let mut red_led = gpiob.pb12.into_push_pull_output(&mut gpiob.crh);
-    let mut yel_led = gpiob.pb13.into_push_pull_output(&mut gpiob.crh);
-    let mut grn_led = gpiob.pb14.into_push_pull_output(&mut gpiob.crh);
+    let mut test_led = gpioc.pc13.into_push_pull_output(&mut gpioc.crh);
 
     // Configure the syst timer to trigger an update every second
     let mut timer = Timer::syst(cp.SYST, &clocks).counter_hz();
@@ -40,17 +38,9 @@ fn main() -> ! {
 
     // Wait for the timer to trigger an update and change the state of the LED
     loop {
+        test_led.set_high();
         block!(timer.wait()).unwrap();
-        grn_led.set_high();
-        yel_led.set_low();
-        red_led.set_low();
+        test_led.set_low();
         block!(timer.wait()).unwrap();
-        grn_led.set_low();
-        yel_led.set_high();
-        red_led.set_low();
-        block!(timer.wait()).unwrap();
-        grn_led.set_low();
-        yel_led.set_low();
-        red_led.set_high();
     }
 }
