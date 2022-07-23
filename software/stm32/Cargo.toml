@@ -1,0 +1,12 @@
+[package]
+name = "stm32-cross-compile"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[dependencies]
+fishstick = {path = "../fishstick" }
+
+[[bin]]
+name = "fishstick-stm32"
+path = "src/main.rs"
