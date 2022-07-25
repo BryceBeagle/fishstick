@@ -5,7 +5,7 @@ edition = "2021"
 publish = false
 
 [dependencies]
-fishstick = {path = "../fishstick" }
+fishstick = { path = "../fishstick" }
 
 [[bin]]
 name = "fishstick-stm32"
