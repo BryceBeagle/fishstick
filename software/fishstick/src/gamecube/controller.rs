@@ -15,7 +15,7 @@ impl<J: Joybus> Controller<J> {
         Self { joybus, state: BitArray::ZERO }
     }
 
-    pub fn get_state(&self) -> &Packet {
+    pub fn get_cached_state(&self) -> &Packet {
         &self.state
     }
 
