@@ -1,1 +1,2 @@
-pub mod joybus;
+mod joybus;
+pub use joybus::*;
