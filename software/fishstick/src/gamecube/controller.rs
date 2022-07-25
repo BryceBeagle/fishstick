@@ -1,31 +1,35 @@
-use crate::joybus::Joybus;
+use bitvec::prelude::*;
+use crate::joybus::{Joybus, Packet};
+
+// TODO: fill packet constants with expected controller data
+const CALIBRATE_PACKET: Packet = BitArray::ZERO;
+const STATUS_PACKET: Packet = BitArray::ZERO;
 
 pub struct Controller<J: Joybus> {
     joybus: J,
+    state: Packet,
 }
 
 impl<J: Joybus> Controller<J> {
     pub fn new(joybus: J) -> Self {
-        Self { joybus }
+        Self { joybus, state: BitArray::ZERO }
     }
 
-    pub fn calibrate(&self) -> Result<(), ()> {
-        let send_packet = &[1, 2, 3];
-        let expected_receive = [4, 5, 6];
+    pub fn get_state(&self) -> &Packet {
+        &self.state
+    }
 
-        let receive_packet = self.joybus.send_receive(send_packet)?;
-
-        match receive_packet == expected_receive {
-            true => Ok(()),
-            false => Err(())
+    pub fn process_state(&mut self) -> Result<&Packet, &'static str> {
+        match self.joybus.send_receive_no_alloc(&STATUS_PACKET, &mut self.state) {
+            Ok(_) => Ok(&self.state),
+            Err(message) => Err(message),
         }
     }
 
-    pub fn exists(&self) -> Result<bool, ()> {
-        todo!()
-    }
-
-    pub fn status(&self) -> Result<&[i32; 69], ()> {
-        todo!()
+    pub fn calibrate(&mut self) -> Result<(), &'static str> {
+        match self.joybus.send(&CALIBRATE_PACKET) {
+            Ok(_) => Ok(()),
+            Err(message) => Err(message),
+        }
     }
 }
