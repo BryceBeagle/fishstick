@@ -32,4 +32,8 @@ impl<J: Joybus> Controller<J> {
             Err(message) => Err(message),
         }
     }
+
+    pub fn exists(&self) -> Result<bool, &'static str> {
+        todo!()
+    }
 }
