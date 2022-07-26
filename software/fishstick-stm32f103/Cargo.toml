@@ -1,5 +1,5 @@
 [package]
-name = "stm32-cross-compile"
+name = "fishstick-stm32f103"
 version = "0.1.0"
 edition = "2021"
 publish = false
@@ -8,5 +8,5 @@ publish = false
 fishstick = { path = "../fishstick" }
 
 [[bin]]
-name = "fishstick-stm32"
+name = "fishstick-stm32f103"
 path = "src/main.rs"
