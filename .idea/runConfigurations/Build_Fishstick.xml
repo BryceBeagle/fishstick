@@ -1,7 +1,7 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="build" type="CargoCommandRunConfiguration" factoryName="Cargo Command">
+  <configuration default="false" name="Build Fishstick" type="CargoCommandRunConfiguration" factoryName="Cargo Command">
     <option name="command" value="build" />
-    <option name="workingDirectory" value="file://$PROJECT_DIR$/software/fishstick" />
+    <option name="workingDirectory" value="file://$PROJECT_DIR$/software/fishstick-stm32f401" />
     <option name="channel" value="DEFAULT" />
     <option name="requiredFeatures" value="true" />
     <option name="allFeatures" value="false" />
