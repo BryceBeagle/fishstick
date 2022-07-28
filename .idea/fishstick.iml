@@ -5,8 +5,10 @@
       <sourceFolder url="file://$MODULE_DIR$/software/fishstick/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/software/fishstick/tests" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/software/fishstick-stm32f103/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/software/fishstick-stm32f401/src" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/software/fishstick/target" />
       <excludeFolder url="file://$MODULE_DIR$/software/fishstick-stm32f103/target" />
+      <excludeFolder url="file://$MODULE_DIR$/software/fishstick-stm32f401/target" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
