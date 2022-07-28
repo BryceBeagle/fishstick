@@ -1,0 +1,10 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="deploy fishstick-stm32f401" type="com.jetbrains.cidr.embedded.openocd.conf.type" factoryName="com.jetbrains.cidr.embedded.openocd.conf.factory" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="fishstick" TARGET_NAME="Do Nothing" CONFIG_NAME="Do Nothing" version="1" RUN_PATH="$PROJECT_DIR$/software/fishstick-stm32f401/target/thumbv7em-none-eabihf/debug/fishstick-stm32f401">
+    <openocd version="1" gdb-port="3333" telnet-port="4444" board-config="$PROJECT_DIR$/software/fishstick-stm32f401/.openocd/stlink-stm32f4xx.cfg" reset-type="RUN" download-type="ALWAYS">
+      <debugger kind="GDB" isBundled="true" />
+    </openocd>
+    <method v="2">
+      <option name="RunConfigurationTask" enabled="true" run_configuration_name="Build STM3F401" run_configuration_type="CargoCommandRunConfiguration" />
+    </method>
+  </configuration>
+</component>
