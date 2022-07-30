@@ -7,6 +7,8 @@ use nb::block;
 use panic_halt as _;
 use stm32f1xx_hal::{pac, prelude::*, timer::Timer};
 
+use fishstick::joybus::Packet;
+
 #[entry]
 fn main() -> ! {
     // Get access to the core peripherals from the cortex-m crate
