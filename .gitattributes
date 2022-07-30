@@ -1,1 +1,4 @@
 *.pro filter=kicad_project
+
+# GitHub Linguist overrides
+*.x linguist-language=Linker-Script
