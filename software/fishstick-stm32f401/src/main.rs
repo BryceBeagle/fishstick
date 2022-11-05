@@ -1,40 +1,41 @@
-#![deny(unsafe_code)]
 #![no_main]
 #![no_std]
 
+use embedded_hal::spi::MODE_0;
+use nb::block;
 use panic_rtt_target as _;
 use rtt_target::rtt_init_default;
 
 use cortex_m_rt::entry;
-use stm32f4xx_hal::{pac, prelude::*};
+use stm32f4xx_hal::{gpio::NoPin, pac, prelude::*, spi::Spi, timer::Timer};
 
 #[entry]
 fn main() -> ! {
     rtt_init_default!();
 
-    if let (Some(dp), Some(cp)) = (
-        pac::Peripherals::take(),
-        cortex_m::peripheral::Peripherals::take(),
-    ) {
-        // Set up the LED. On the Nucleo-446RE it's connected to pin PA5.
-        let gpioc = dp.GPIOC.split();
-        let mut led = gpioc.pc13.into_push_pull_output();
+    let cp = cortex_m::Peripherals::take().unwrap();
+    let dp = pac::Peripherals::take().unwrap();
 
-        // Set up the system clock. We want to run at 48MHz for this one.
-        let rcc = dp.RCC.constrain();
-        let clocks = rcc.cfgr.sysclk(48.MHz()).freeze();
+    let rcc = dp.RCC.constrain();
 
-        // Create a delay abstraction based on SysTick
-        let mut delay = cp.SYST.delay(&clocks);
+    let clocks = rcc
+        .cfgr
+        .sysclk(64.MHz())
+        .hclk(32.MHz())
+        .pclk1(2.MHz())
+        .freeze();
 
-        loop {
-            // On for 1s, off for 1s.
-            led.set_high();
-            delay.delay_ms(1000_u32);
-            led.set_low();
-            delay.delay_ms(1000_u32);
-        }
+    let gpiob = dp.GPIOB.split();
+    let mosi = gpiob.pb15.into_alternate();
+    let mut spi = Spi::new_bidi(dp.SPI2, (NoPin, NoPin, mosi), MODE_0, 1.MHz(), &clocks);
+
+    let mut timer = Timer::syst(cp.SYST, &clocks).counter_hz();
+    timer.start(60.Hz()).unwrap();
+
+    let data = &[0b1010_1010, 0b1010_1010];
+
+    loop {
+        spi.write(data).unwrap();
+        block!(timer.wait()).unwrap();
     }
-
-    loop {}
 }
