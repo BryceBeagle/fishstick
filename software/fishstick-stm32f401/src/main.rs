@@ -2,13 +2,16 @@
 #![no_main]
 #![no_std]
 
-use panic_halt as _;
+use panic_rtt_target as _;
+use rtt_target::rtt_init_default;
 
 use cortex_m_rt::entry;
 use stm32f4xx_hal::{pac, prelude::*};
 
 #[entry]
 fn main() -> ! {
+    rtt_init_default!();
+
     if let (Some(dp), Some(cp)) = (
         pac::Peripherals::take(),
         cortex_m::peripheral::Peripherals::take(),
