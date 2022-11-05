@@ -4,18 +4,25 @@ version = "0.1.0"
 authors = ["rhedgeco"]
 edition = "2021"
 
+# used for temporarily silencing rust-analyzer error: can't find crate for `test`
+[[bin]]
+name = "fishstick-stm32f401"
+test = false
+bench = false
+
 [dependencies]
-embedded-hal = "0.2.7"
-nb = "1.0.0"
-cortex-m = "0.7.4"
-cortex-m-rt = "0.7.1"
-panic-halt = "0.2.0"
+embedded-hal = "0.2"
+nb = "1.0"
+cortex-m = "0.7"
+cortex-m-rt = "0.7"
+panic-rtt-target = { version = "0.1", features = ["cortex-m"] }
+rtt-target = { version = "0.3", features = ["cortex-m"] }
 
 [dependencies.bitvec]
-version = "1"
+version = "1.0"
 default-features = false
 features = []
 
 [dependencies.stm32f4xx-hal]
-version = "0.13.1"
+version = "0.13"
 features = ["rt", "stm32f401"]
