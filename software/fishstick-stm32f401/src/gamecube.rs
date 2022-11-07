@@ -6,6 +6,7 @@ pub const STATUS_MESSAGE: &[u8] = &[
     0b_1000_1011u8,
 ];
 
+#[allow(dead_code)]
 pub const TEST_MESSAGE: &[u8] = &[
     0b_1010_1010,
     0b_1010_1010,
