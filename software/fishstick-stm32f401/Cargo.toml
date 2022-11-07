@@ -11,7 +11,7 @@ cortex-m = "0.7"
 cortex-m-rt = "0.7"
 panic-rtt-target = { version = "0.1", features = ["cortex-m"] }
 rtt-target = { version = "0.3", features = ["cortex-m"] }
-bitvec = { version = "1.0", default-features = false}
+# bitvec = { version = "1.0", default-features = false}
 stm32f4xx-hal = { version = "0.13", features = ["rt", "stm32f401"] }
 
 [profile.dev]
