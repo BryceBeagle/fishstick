@@ -1,0 +1,5 @@
+{
+    "rust-analyzer.linkedProjects": [
+        "software/fishstick-stm32f401/Cargo.toml",
+    ]
+}
