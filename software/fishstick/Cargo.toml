@@ -5,16 +5,16 @@ authors = ["ignormies"]
 edition = "2021"
 
 [dependencies]
-nb = "1.0.0"
-cortex-m = "0.7.4"
-cortex-m-rt = "0.7.1"
-panic-halt = "0.2.0"
+nb = "*"
+cortex-m = "*"
+cortex-m-rt = "*"
+panic-halt = "*"
 
 [dependencies.bitvec]
-version = "1"
+version = "*"
 default-features = false
 features = []
 
 [dependencies.embedded-hal]
-version = "0.2.7"
+version = "*"
 features = ["unproven"]
