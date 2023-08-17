@@ -18,7 +18,3 @@ features = []
 [dependencies.embedded-hal]
 version = "0.2.7"
 features = ["unproven"]
-
-[dependencies.stm32f1xx-hal]
-version = "0.9.0"
-features = ["rt", "stm32f103", "medium"]
