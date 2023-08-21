@@ -11,10 +11,12 @@ test = false
 bench = false
 
 [dependencies]
-embedded-hal = "*"
-nb = "*"
-cortex-m = "*"
 cortex-m-rt = "*"
+embedded-hal = "*"
+defmt = "*"
+# https://ferrous-systems.com/blog/defmt-rtt-linker-error/
+defmt-rtt = ">=0.4"
+nb = "*"
 panic-rtt-target = { version = "*", features = ["cortex-m"] }
 rtt-target = { version = "*", features = ["cortex-m"] }
 
@@ -22,6 +24,17 @@ rtt-target = { version = "*", features = ["cortex-m"] }
 version = "*"
 default-features = false
 features = []
+
+[dependencies.cortex-m]
+version = "*"
+features = [
+    # https://ferrous-systems.com/blog/defmt-rtt-linker-error/
+    "critical-section-single-core"
+]
+
+[dependencies.panic-probe]
+version = "*"
+features = ["print-defmt"]
 
 [dependencies.stm32f4xx-hal]
 version = "*"

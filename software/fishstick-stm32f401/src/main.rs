@@ -2,15 +2,17 @@
 #![no_main]
 #![no_std]
 
-use panic_rtt_target as _;
-use rtt_target::rtt_init_default;
-
 use cortex_m_rt::entry;
+use defmt::{info, println};
+#[allow(unused_imports)]
+use defmt_rtt as _; // global_logger
+#[allow(unused_imports)]
+use panic_probe as _; // panic_handler
 use stm32f4xx_hal::{pac, prelude::*};
 
 #[entry]
 fn main() -> ! {
-    rtt_init_default!();
+    println!("Hello, world!");
 
     if let (Some(dp), Some(cp)) = (
         pac::Peripherals::take(),
@@ -29,8 +31,11 @@ fn main() -> ! {
 
         loop {
             // On for 1s, off for 1s.
+            info!("off");
             led.set_high();
             delay.delay_ms(1000_u32);
+
+            info!("on");
             led.set_low();
             delay.delay_ms(1000_u32);
         }
