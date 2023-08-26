@@ -11,18 +11,18 @@ test = false
 bench = false
 
 [dependencies]
-embedded-hal = "0.2"
-nb = "1.0"
-cortex-m = "0.7"
-cortex-m-rt = "0.7"
-panic-rtt-target = { version = "0.1", features = ["cortex-m"] }
-rtt-target = { version = "0.3", features = ["cortex-m"] }
+embedded-hal = "*"
+nb = "*"
+cortex-m = "*"
+cortex-m-rt = "*"
+panic-rtt-target = { version = "*", features = ["cortex-m"] }
+rtt-target = { version = "*", features = ["cortex-m"] }
 
 [dependencies.bitvec]
-version = "1.0"
+version = "*"
 default-features = false
 features = []
 
 [dependencies.stm32f4xx-hal]
-version = "0.13"
+version = "*"
 features = ["rt", "stm32f401"]
