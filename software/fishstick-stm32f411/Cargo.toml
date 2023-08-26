@@ -32,6 +32,33 @@ features = [
     "critical-section-single-core"
 ]
 
+[dependencies.embassy-executor]
+git = "https://github.com/embassy-rs/embassy"
+features = ["nightly", "arch-cortex-m", "executor-thread", "defmt", "integrated-timers"]
+
+[dependencies.embassy-stm32]
+git = "https://github.com/embassy-rs/embassy.git"
+# ffe96889 is the commit prior to f26dd54f which bumps the internal depency on
+# `embedded-hal-1` -> "1.0.0-rc.1", which is incompatible with the latest
+# version of `stm32f411-hal` at this time (0.17.1)
+# Must match the version in rust-toolchain.toml
+rev = "ffe96889"
+features = ["defmt", "memory-x", "stm32f411ce", "time-driver-any"]
+
+[dependencies.embassy-time]
+git = "https://github.com/embassy-rs/embassy"
+# ffe96889 is the commit prior to f26dd54f which bumps the internal depency on
+# `embedded-hal-1` -> "1.0.0-rc.1", which is incompatible with the latest
+# version of `stm32f411-hal` at this time (0.17.1)
+# Must match the version in rust-toolchain.toml
+rev = "ffe96889"
+features = ["defmt", "defmt-timestamp-uptime", "unstable-traits", "tick-hz-32_768"]
+
+[dependencies.heapless]
+version = "*"
+default-features = false
+features = []
+
 [dependencies.panic-probe]
 version = "*"
 features = ["print-defmt"]
