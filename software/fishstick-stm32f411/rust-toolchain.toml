@@ -1,2 +1,5 @@
 [toolchain]
+# Pinned here https://github.com/embassy-rs/embassy/blob/ffe96889/rust-toolchain.toml#L4
+# This version matches the version pinned in the Cargo.toml
+channel = "nightly-2023-06-28"
 targets = ["thumbv7em-none-eabihf"]

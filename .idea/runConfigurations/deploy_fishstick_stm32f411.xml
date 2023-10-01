@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="deploy fishstick-stm32f411" type="com.jetbrains.cidr.embedded.openocd.conf.type" factoryName="com.jetbrains.cidr.embedded.openocd.conf.factory" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="fishstick" TARGET_NAME="Do Nothing" CONFIG_NAME="Do Nothing" version="1" RUN_PATH="$PROJECT_DIR$/software/fishstick-stm32f411/target/thumbv7em-none-eabihf/debug/fishstick-stm32f411">
+  <configuration default="false" name="deploy fishstick-stm32f411" type="com.jetbrains.cidr.embedded.openocd.conf.type" factoryName="com.jetbrains.cidr.embedded.openocd.conf.factory" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="fishstick" TARGET_NAME="Do Nothing" CONFIG_NAME="Do Nothing" version="1" RUN_PATH="$PROJECT_DIR$/software/fishstick-stm32f401/target/thumbv7em-none-eabihf/debug/fishstick-stm32f401">
     <openocd version="1" gdb-port="3333" telnet-port="4444" board-config="$PROJECT_DIR$/software/fishstick-stm32f411/.openocd/stlink-stm32f4x.cfg" reset-type="RUN" download-type="ALWAYS">
       <debugger kind="GDB" isBundled="true" />
     </openocd>
