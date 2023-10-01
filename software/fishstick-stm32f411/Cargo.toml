@@ -1,12 +1,12 @@
 [package]
-name = "fishstick-stm32f401"
+name = "fishstick-stm32f411"
 version = "0.1.0"
 authors = ["rhedgeco"]
 edition = "2021"
 
 # used for temporarily silencing rust-analyzer error: can't find crate for `test`
 [[bin]]
-name = "fishstick-stm32f401"
+name = "fishstick-stm32f411"
 test = false
 bench = false
 
@@ -38,4 +38,4 @@ features = ["print-defmt"]
 
 [dependencies.stm32f4xx-hal]
 version = "*"
-features = ["rt", "stm32f401"]
+features = ["rt", "stm32f411"]

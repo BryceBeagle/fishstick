@@ -176,7 +176,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "723dce4e9f25b6e6c5f35628e144794e5b459216ed7da97b7c4b66cdb3fa82ca"
 
 [[package]]
-name = "fishstick-stm32f401"
+name = "fishstick-stm32f411"
 version = "0.1.0"
 dependencies = [
  "bitvec",
