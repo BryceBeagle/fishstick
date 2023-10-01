@@ -3,3 +3,9 @@ chip = "STM32F401CCUx"
 
 [default.rtt]
 enabled = true
+channels = [
+     { up = 0, down = 0, format = "Defmt" },
+]
+
+[env]
+DEFMT_LOG = "trace"
