@@ -22,6 +22,9 @@ rtt-target = { version = "*", features = ["cortex-m"] }
 futures = { version = "0.3.17", default-features = false, features = [
     "async-await",
 ] }
+usb-device = "*"
+usbd-serial = "*"
+stm32-usbd = "*"
 
 [dependencies.bitvec]
 version = "*"
@@ -35,29 +38,6 @@ features = [
     "critical-section-single-core",
 ]
 
-[dependencies.embassy-executor]
-git = "https://github.com/embassy-rs/embassy"
-rev = "4306968"
-features = ["arch-cortex-m", "executor-thread", "defmt", "integrated-timers"]
-
-[dependencies.embassy-stm32]
-git = "https://github.com/embassy-rs/embassy.git"
-# Must match the version in rust-toolchain.toml
-rev = "4306968"
-features = ["defmt", "memory-x", "stm32f411ce", "time-driver-any"]
-
-[dependencies.embassy-time]
-git = "https://github.com/embassy-rs/embassy"
-# Must match the version in rust-toolchain.toml
-rev = "4306968"
-features = ["defmt", "defmt-timestamp-uptime", "tick-hz-32_768"]
-
-[dependencies.embassy-usb]
-git = "https://github.com/embassy-rs/embassy"
-# Must match the version in rust-toolchain.toml
-rev = "4306968"
-features = ["defmt"]
-
 [dependencies.heapless]
 version = "*"
 default-features = false
@@ -68,7 +48,5 @@ version = "*"
 features = ["print-defmt"]
 
 [dependencies.stm32f4xx-hal]
-git = "https://github.com/stm32-rs/stm32f4xx-hal"
-# stm32f4xx-hal's dependency on embedded-hal needs to be compatible with embassy's dependency
-rev = "f848188"
-features = ["rt", "stm32f411"]
+version = "*"
+features = ["rt", "stm32f411", "usb_fs"]
