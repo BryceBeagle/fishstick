@@ -19,6 +19,9 @@ defmt-rtt = ">=0.4"
 nb = "*"
 panic-rtt-target = { version = "*", features = ["cortex-m"] }
 rtt-target = { version = "*", features = ["cortex-m"] }
+futures = { version = "0.3.17", default-features = false, features = [
+    "async-await",
+] }
 
 [dependencies.bitvec]
 version = "*"
@@ -29,7 +32,7 @@ features = []
 version = "*"
 features = [
     # https://ferrous-systems.com/blog/defmt-rtt-linker-error/
-    "critical-section-single-core"
+    "critical-section-single-core",
 ]
 
 [dependencies.embassy-executor]
@@ -48,6 +51,12 @@ git = "https://github.com/embassy-rs/embassy"
 # Must match the version in rust-toolchain.toml
 rev = "4306968"
 features = ["defmt", "defmt-timestamp-uptime", "tick-hz-32_768"]
+
+[dependencies.embassy-usb]
+git = "https://github.com/embassy-rs/embassy"
+# Must match the version in rust-toolchain.toml
+rev = "4306968"
+features = ["defmt"]
 
 [dependencies.heapless]
 version = "*"
