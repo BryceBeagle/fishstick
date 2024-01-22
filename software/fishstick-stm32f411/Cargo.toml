@@ -25,6 +25,7 @@ futures = { version = "0.3.17", default-features = false, features = [
 usb-device = "*"
 usbd-serial = "*"
 stm32-usbd = "*"
+usbd-hid = "*"
 
 [dependencies.bitvec]
 version = "*"
