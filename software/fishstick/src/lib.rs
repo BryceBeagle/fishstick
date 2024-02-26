@@ -1,6 +1,7 @@
 #![cfg_attr(not(test), no_std)]
 
 pub mod gamecube;
+pub mod hid;
 pub mod joybus;
 
 #[cfg(test)]

@@ -9,6 +9,7 @@ nb = "*"
 cortex-m = "*"
 cortex-m-rt = "*"
 panic-halt = "*"
+usbd-hid = "*"
 
 [dependencies.bitvec]
 version = "*"
