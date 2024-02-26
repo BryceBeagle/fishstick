@@ -1,5 +1,3 @@
 [toolchain]
-# Pinned here https://github.com/embassy-rs/embassy/blob/4306968/rust-toolchain.toml#L4
-# This version matches the version pinned in the Cargo.toml
 channel = "1.75"
 targets = ["thumbv7em-none-eabihf"]
