@@ -1,2 +1,9 @@
 .idea/workspace.xml
 .idea/shelf
+
+# ignore build dir
+/target
+
+# ignore direnv stuff
+.direnv
+.envrc
