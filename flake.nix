@@ -26,20 +26,20 @@
 
           # include useful extensions
           extensions = [
-            "rustfmt"
-            "rust-src"
             "rust-analyzer"
-            "cargo"
           ];
         };
       in {
+        # build default rust dev shell
         devShells.default = with pkgs;
-          mkShell {
+          mkShell rec {
             buildInputs = [
               pkg-config
               rust-bin
-              just
             ];
+
+            RUST_SRC_PATH = "${rust-bin}/lib/rustlib/src/rust/library";
+            LD_LIBRARY_PATH = "${lib.makeLibraryPath buildInputs}";
           };
       }
     );
