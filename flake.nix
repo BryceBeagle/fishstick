@@ -36,6 +36,7 @@
             buildInputs = [
               pkg-config
               rust-bin
+              just
             ];
 
             RUST_SRC_PATH = "${rust-bin}/lib/rustlib/src/rust/library";
