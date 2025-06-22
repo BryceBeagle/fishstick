@@ -21,7 +21,7 @@
 
         # set up the rust package
         rust-bin = pkgs.rust-bin.stable.latest.default.override {
-          # set the target for stm32f411
+          # set up compile targets for dev boards
           targets = ["thumbv7em-none-eabihf"];
 
           # include useful extensions
@@ -33,10 +33,16 @@
         # build default rust dev shell
         devShells.default = with pkgs;
           mkShell rec {
-            buildInputs = [
+            nativeBuildInputs = [
               pkg-config
-              rust-bin
+            ];
+
+            buildInputs = [
+              usbutils
+              stlink
               just
+              rust-bin
+              probe-rs-tools
             ];
 
             RUST_SRC_PATH = "${rust-bin}/lib/rustlib/src/rust/library";
