@@ -1,5 +1,5 @@
 [package]
-name = "fishstick-stm32f411"
+name = "fishstick-stm32f401cc"
 version = "0.1.0"
 authors = ["rhedgeco", "ignormies"]
 edition = "2024"
