@@ -1,8 +1,8 @@
 [package]
 name = "fishstick"
 version = "0.1.0"
-authors = ["ignormies"]
-edition = "2021"
+authors = ["ignormies", "rhedgeco"]
+edition = "2024"
 
 [dependencies]
 nb = "*"
