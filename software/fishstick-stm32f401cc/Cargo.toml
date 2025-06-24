@@ -1,0 +1,30 @@
+[package]
+name = "fishstick-stm32f401cc"
+version = "0.1.0"
+authors = ["rhedgeco", "ignormies"]
+edition = "2024"
+
+[dependencies.embassy-stm32]
+version = "0.2.0"
+features = ["defmt", "memory-x", "stm32f401cc", "time-driver-any"]
+
+[dependencies.embassy-executor]
+version = "0.7.0"
+features = ["defmt", "arch-cortex-m", "executor-thread", "executor-interrupt"]
+
+[dependencies.embassy-time]
+version = "0.4.0"
+features = ["defmt", "defmt-timestamp-uptime", "tick-hz-32_768"]
+
+[dependencies.panic-probe]
+version = "1.0.0"
+features = ["print-defmt"]
+
+[dependencies.cortex-m]
+version = "0.7.6"
+features = ["critical-section-single-core"]
+
+[dependencies]
+defmt = "1.0.1"
+defmt-rtt = "1.0.0"
+cortex-m-rt = "0.7.0"

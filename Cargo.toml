@@ -1,6 +1,3 @@
 [workspace]
 resolver = "3"
-members = [
-    "software/fishstick",
-    "software/fishstick-stm32f411"
-]
+members = ["software/fishstick-stm32f401cc"]
