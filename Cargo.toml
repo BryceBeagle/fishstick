@@ -1,6 +1,3 @@
 [workspace]
 resolver = "3"
-members = ["software/fishstick", "software/fishstick-stm32f401"]
-
-[workspace.dependencies]
-fishstick = { version = "0.1.0", path = "software/fishstick" }
+members = ["software/fishstick-stm32f401"]
