@@ -47,6 +47,7 @@
               just
               rust-bin
               probe-rs-tools
+              cargo-expand
 
               (pkgs.vscode-with-extensions.override {
                 vscodeExtensions = with pkgs.vscode-extensions;
