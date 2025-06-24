@@ -3,12 +3,14 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     flake-utils.url = "github:numtide/flake-utils";
     rust-overlay.url = "github:oxalica/rust-overlay";
+    vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
   };
 
   outputs = {
     nixpkgs,
     flake-utils,
     rust-overlay,
+    vscode-extensions,
     ...
   }:
     flake-utils.lib.eachDefaultSystem (
@@ -16,6 +18,7 @@
         # set up nixpkgs with rust overlay
         pkgs = import nixpkgs {
           inherit system;
+          config.allowUnfree = true;
           overlays = [(import rust-overlay)];
         };
 
@@ -27,6 +30,7 @@
           # include useful extensions
           extensions = [
             "rust-analyzer"
+            "rust-src"
           ];
         };
       in {
@@ -43,6 +47,21 @@
               just
               rust-bin
               probe-rs-tools
+
+              (pkgs.vscode-with-extensions.override {
+                vscodeExtensions = with pkgs.vscode-extensions;
+                  [
+                    jnoortheen.nix-ide
+                    kamadorueda.alejandra
+                    rust-lang.rust-analyzer
+                    tamasfe.even-better-toml
+                    vadimcn.vscode-lldb
+                    skellock.just
+                  ]
+                  ++ (with vscode-extensions.extensions.${system}.vscode-marketplace; [
+                    barbosshack.crates-io
+                  ]);
+              })
             ];
 
             RUST_SRC_PATH = "${rust-bin}/lib/rustlib/src/rust/library";
