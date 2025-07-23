@@ -30,5 +30,5 @@ defmt-rtt = "1.0.0"
 cortex-m-rt = "0.7.0"
 
 [features]
-bryce = ["embassy-stm32/stm32f401cc"]
-ryan = ["embassy-stm32/stm32f411ce"]
+bryce = ["embassy-stm32/stm32f411ce"]
+ryan = ["embassy-stm32/stm32f401cc"]
