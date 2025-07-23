@@ -1,7 +1,11 @@
+# ignore jet brains settings
 .idea/workspace.xml
 .idea/shelf
 
-# ignore build dir
+# ignore vscode settings
+.vscode/
+
+# ignore rust build dir
 /target
 
 # ignore direnv stuff
