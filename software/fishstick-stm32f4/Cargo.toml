@@ -1,12 +1,12 @@
 [package]
-name = "fishstick-stm32f401cc"
+name = "fishstick-stm32f4"
 version = "0.1.0"
 authors = ["rhedgeco", "ignormies"]
 edition = "2024"
 
 [dependencies.embassy-stm32]
 version = "0.2.0"
-features = ["defmt", "memory-x", "stm32f401cc", "time-driver-any"]
+features = ["defmt", "memory-x", "time-driver-any"]
 
 [dependencies.embassy-executor]
 version = "0.7.0"
@@ -28,3 +28,7 @@ features = ["critical-section-single-core"]
 defmt = "1.0.1"
 defmt-rtt = "1.0.0"
 cortex-m-rt = "0.7.0"
+
+[features]
+bryce = ["embassy-stm32/stm32f401cc"]
+ryan = ["embassy-stm32/stm32f411ce"]

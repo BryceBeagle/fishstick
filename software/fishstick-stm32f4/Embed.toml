@@ -1,0 +1,10 @@
+#[default.general]
+
+[default.rtt]
+enabled = true
+
+[ryan.general]
+chip = "STM32F401CCUx"
+
+[bryce.general]
+chip = "STM32F411CEUx"
